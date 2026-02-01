@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Will You Be My Valentine?</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(to right, #ffd1dc, #ffe6f0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.shy-text {
+    margin-top: 25px;   /* More space */
+    font-size: 14px;
+    color: #ff6b9c;
+    font-style: italic;
+}
+
+
+.card {
+    background: white;
+    width: 400px;
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.emoji {
+    font-size: 70px;
+}
+
+h1 {
+    font-size: 22px;
+    margin: 20px 0;
+}
+
+.buttons {
+    margin-top: 30px;
+    position: relative;
+    height: 60px;
+}
+
+button {
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#yesBtn {
+    background: #ff4081;
+    color: white;
+}
+
+#noBtn {
+    background: #eee;
+    color: black;
+    position: absolute;
+}
+
+#msg {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ff4081;
+}
+
+#loveImg {
+    display: none;
+    width: 260px;
+    margin: 30px auto;   /* Center horizontally */
+    display: block;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="emoji">🐱</div>
+
+    <h1>Will you be my Valentine?</h1>
+
+    <div class="buttons">
+
+        <button id="yesBtn" onclick="sayYes()">Yes</button>
+
+        <button id="noBtn" onmouseover="moveNo()">No</button>
+
+        <div class="shy-text"><div class="shy-text">No is shy 💀</div>
+    </div>
+
+    </div>
+
+    <img id="loveImg"
+     src="excited-hockey.gif"
+     alt="Love"
+     style="display:none; width:200px; margin-top:20px; border-radius:15px;">
+
+
+</div>
+
+
+<script>
+
+
+
+const noBtn = document.getElementById("noBtn");
+const card = document.querySelector(".card");
+
+function sayYes() {
+
+document.getElementById("loveImg").style.display = "block";
+document.getElementById("yesBtn").style.display = "none";
+document.getElementById("noBtn").style.display = "none";
+}
+
+
+
+// TELEPORT MODE 😈
+function moveNo() {
+
+    const cardWidth = card.clientWidth;
+    const cardHeight = card.clientHeight;
+
+    const btnWidth = noBtn.offsetWidth;
+    const btnHeight = noBtn.offsetHeight;
+
+    // Random position anywhere inside card
+    const x = Math.random() * (cardWidth - btnWidth);
+    const y = Math.random() * (cardHeight - btnHeight);
+
+    // Instant jump (no animation)
+    noBtn.style.position = "absolute";
+    noBtn.style.transition = "0s";
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+
+    // Small vibration effect
+    noBtn.style.transform = "scale(1.1)";
+    setTimeout(() => {
+        noBtn.style.transform = "scale(1)";
+    }, 50);
+}
+
+</script>
+
+
+</script>
+
+</script>
+
+</body>
+</html>
